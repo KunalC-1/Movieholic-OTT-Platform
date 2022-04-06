@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
-const verify = require("../varifyToken");
+const verify = require("../verifyToken");
 
 //UPDATE
 router.put("/:id", verify, async (req, res) => {
@@ -34,7 +34,7 @@ router.put("/:id", verify, async (req, res) => {
 router.delete("/:id", verify, async (req, res) => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
         try {
-            await User.findByIdAndDelete(req.params.id)
+            await User.findByIdAndDelete(req.params.id);
             res.status(200).json("User has been deleted!!!");
         } catch (err) {
             res.status(500).json(err);
@@ -91,7 +91,7 @@ router.get("/stats", async (req, res) => {
                 },
             },
         ]);
-        res.status(200).json(data)
+        res.status(200).json(data);
     } catch (err) {
         res.status(500).json(err);
     }
