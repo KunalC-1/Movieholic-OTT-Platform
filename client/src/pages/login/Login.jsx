@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { login } from "../../authContext/apiCalls";
 import { AuthContext } from "../../authContext/AuthContext";
 import "./login.scss";
-
+import { Link } from "react-router-dom";
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -39,9 +39,11 @@ export default function Login() {
                     <button className="loginButton" onClick={handleLogin}>
                         Sign In
                     </button>
-                    <span>
-                        New to Movieholic? <b>Sign up now.</b>
-                    </span>
+                    <Link to="/register" className="link">
+                        <span>
+                            New to Movieholic? <b>Sign up now.</b>
+                        </span>
+                    </Link>
                 </form>
             </div>
         </div>

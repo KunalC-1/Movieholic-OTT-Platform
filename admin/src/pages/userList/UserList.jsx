@@ -15,7 +15,6 @@ export default function UserList() {
     }, [dispatch]);
     console.log(users);
     const columns = [
-        { field: "id", headerName: "ID", width: 90 },
         {
             field: "user",
             headerName: "User",
@@ -25,7 +24,7 @@ export default function UserList() {
                     <div className="userListUser">
                         <img
                             className="userListImg"
-                            src={params.row.avatar}
+                            src="https://i.ibb.co/b6nyH82/Avtar-Icon-PNG-Image.jpg"
                             alt=""
                         />
                         {params.row.username}
@@ -34,31 +33,6 @@ export default function UserList() {
             },
         },
         { field: "email", headerName: "Email", width: 200 },
-        {
-            field: "status",
-            headerName: "Status",
-            width: 120,
-        },
-        {
-            field: "transaction",
-            headerName: "Transaction Volume",
-            width: 160,
-        },
-        {
-            field: "action",
-            headerName: "Action",
-            width: 150,
-            renderCell: (params) => {
-                return (
-                    <>
-                        <Link to={"/user/" + params.row.id}>
-                            <button className="userListEdit">Edit</button>
-                        </Link>
-                        <DeleteOutline className="userListDelete" />
-                    </>
-                );
-            },
-        },
     ];
 
     return (
